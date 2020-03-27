@@ -14,7 +14,7 @@ session_start();
 <header>
   <nav>
     <ul class="nav">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="products/">Products</a></li>
       <li><a href="about.html">About</a></li>
       <li><a class="current" href="contact.html">Contact</a></li>
@@ -23,7 +23,7 @@ session_start();
 </header>
 <br><br>
 <?php
-
+$db = mysqli_connect('localhost','root','','car_rental');
 //TODO: do not hardcode, get from database
 const login = 'admin';
 const password = 'admin';
@@ -32,7 +32,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
   if ($_POST['login'] === login && $_POST['password'] === password){
 
     $_SESSION['login'] = $_POST['login']; //write login to server storage
-    header('Location: ./'); //redirect to main
+    header('Location: ./dashboard/create.php'); //redirect to main
   }
   else
   {
