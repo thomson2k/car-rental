@@ -19,8 +19,14 @@
     height: 100vh;
     width: 100%;
     margin: 70px 10%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+}
+.center {
+    background-image: url(../images/contact.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }
 .calc-container h1 {
     font-size: 8vh;

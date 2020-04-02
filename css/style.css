@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
-body{
-    background-color: #fff;
 
-}
 
 header {
     background-image: linear-gradient(to left, rgba(255,0,0,0),rgba(155,0,0,0),rgb(0,0,0)),url(../images/main.jpg);
@@ -31,10 +28,8 @@ header {
     font-size: 7vh;
     font-weight: lighter;
 }
-.hero-about p{
-
+.hero-about p {
     font-size: 3.5vh;
-    line-height: 40px;
 }
 .hero-content-btn{
     background-color:#F24D53;
@@ -46,16 +41,58 @@ header {
     font-family: 'Montserrat', sans-serif;
     padding: 10px 30px;
 }
-footer {
-    background-color: #c0c0c0;
+footer h1{
     padding: 10px;
-    box-shadow: 0 -5px 5px -5px #333;
+    font-weight: lighter;
+    text-align: center;
 }
-footer p{
-    margin: 0;
-}
+
 @media only screen and (max-width: 700px) {
     .hero-content h1 {
         font-size: 5vh;
   }
+}
+/* SLIDER */
+.slider-section {
+    font-weight: lighter;
+    text-align: center;
+}
+.slider-section h1 {
+
+    font-weight: lighter;
+    margin: 0 10%;
+}
+.coursel-container{
+    overflow: hidden;
+
+    margin: auto;
+     margin-top: 5rem;
+    overflow-x: hidden;
+    position: relative;
+}
+.coursel-slide {
+    display: flex;
+    width:100%;
+    height: auto;
+    margin:0;
+    padding:0;
+}
+
+.coursel-slide img {
+    width: 100%;
+    height: 100%;
+}
+#prevBtn, #nextBtn {
+    cursor: pointer;
+
+}
+#prevBtn, #nextBtn  img{
+    position: absolute;
+    top: 50%;
+}
+#prevBtn {
+    left: 10px;
+}
+#nextBtn  img{
+    right: 10px;
 }
