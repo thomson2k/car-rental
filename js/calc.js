@@ -1,5 +1,5 @@
 
- /* let  first = document.getElementById('quantity');
+ let  first = document.getElementById('quantity');
 let  second = document.getElementById('second');
 let  price = document.getElementById('price');
 
@@ -18,7 +18,7 @@ price.innerHTML = add + "zł";
 
 }
 
-
+/*
 
 var theForm = document.forms["calcform"];
 
@@ -55,7 +55,7 @@ function getTotal()
                                       "Total Price For Cake $"+cakePrice;
 
 }
-*/
+
 //Set up an associative array
 //The keys represent the size of the cake
 //The values represent the cost of the cake i.e A 10" cake cost's $35
@@ -141,4 +141,4 @@ function calculateTotal() {
 function hideTotal() {
 	var totalEl = document.getElementById('price');
 	totalEl.style.display = 'none';
-}
+}*/
