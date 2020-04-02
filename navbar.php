@@ -8,7 +8,7 @@ require_once('./init.php');
   </head>
 
 <body>
-  <nav>
+  <nav id="navbar">
     <div id="logo">RENT a<img src="./images/logo.png"></div>
     <ul class="nav-content">
       <li><a href="./index.php" href="#">Strona główna</a></li>

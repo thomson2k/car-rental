@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-ca">
    <head>
       <meta charset="utf-8">
       <title>Kontakt- Wypożyczalnia aut</title>
+      <link rel="shortcut icon" href="images/favicon.svg"/>
       <link href="css/inline-list.css" rel="stylesheet">
       <link href="css/contact.css" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,25 +16,55 @@
       <?php
          require './db.php';
 
-         if(isset($_POST['new']) && $_POST['new']==1) {
-         $imie = $_REQUEST['imie'];
-         $nazwisko = $_REQUEST['nazwisko'];
-         $email = $_REQUEST['email'];
-         $phone = $_REQUEST['phone'];
-         $pickup = $_REQUEST['pickup'];
-         $dropoff = $_REQUEST['dropoff'];
-         $cars = $_REQUEST['cars'];
-         $location = $_REQUEST['location'];
-         $ubezpieczenie = $_REQUEST['ubezpieczenie'];
+         if(!$db) {
+            echo "BŁAD";
+         } else {
+            if(isset($_POST['new']) && $_POST['new']==1) {
+               $cars = $_REQUEST['cars'];
+               $pickup = $_REQUEST['pickup'];
+               $dropoff = $_REQUEST['dropoff'];
+               $imie = $_REQUEST['imie'];
+               $nazwisko = $_REQUEST['nazwisko'];
+               $phone = $_REQUEST['phone'];
+               $email = $_REQUEST['email'];
+               $location = $_REQUEST['location'];
+               $ubezpieczenie = $_REQUEST['ubezpieczenie'];
 
 
-         $ins_query =
-         "INSERT INTO `wypozyczenia`
-         (`ID_Wypozyczenia`, `ID_samochodu`, `Data_wyp`, `Data_odd`, `Imie`, `Nazwisko`, `Nr_tel`, `Email`,`Lokalizacja`,`ubezpieczenie`)
-         VALUES ('','$cars','$pickup','$dropoff','$imie','$nazwisko','$phone','$email','$location',`$ubezpieczenie`);";
-
-         mysqli_query($db,$ins_query) or die(mysqli_error($db));
+            $ins_query = "INSERT INTO `wypozyczenia`(
+               `ID_Wypozyczenia`,
+               `ID_samochodu`,
+               `Data_wyp`,
+               `Data_odd`,
+               `Imie`,
+               `Nazwisko`,
+               `Nr_tel`,
+               `Email`,
+               `Lokalizacja`,
+               `ubezpieczenie`
+            )
+            VALUES
+            (
+               '',
+              '$cars',
+              '$pickup',
+              '$dropoff',
+              '$imie',
+              '$nazwisko',
+              '$phone',
+              '$email',
+              '$location',
+              '$ubezpieczenie'
+            );";
+            $result = mysqli_query($db,$ins_query);
+            if(!$result) {
+               die(mysqli_error($db));
+            } else {
+               require './alert.php';
+            }
          }
+         }
+
          ?>
       <div class="contact-section">
          <div class="form">

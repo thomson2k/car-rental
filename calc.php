@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-ca">
 <head>
   <meta charset="utf-8">
   <title>Kalkulator- Wypożyczalnia aut</title>
+  <link rel="shortcut icon" href="images/favicon.svg"/>
   <link href="css/inline-list.css" rel="stylesheet">
   <link href="css/calc.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
