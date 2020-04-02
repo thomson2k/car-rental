@@ -2,13 +2,13 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color:#E9F3FF;
+  background-color:#F5F5F5;
 }
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  height: auto;
+  height: 64px;
   background-color: #fff;
   padding: 1em 0;
   margin: 0;
@@ -26,12 +26,10 @@ nav ul {
 nav li {
   display: inline-block;
 }
-#logo{
-  position: absolute;
-  left:40px;
-  top: 0;
-}
 
+.form-container input {
+  margin: 15px;
+}
 nav a {
   font-weight: bolder;
   font-size: larger;
@@ -51,7 +49,7 @@ nav a::before  {
   left: 0;
   height: 3px;
   width: 100%;
-  background-color: rgb(189, 20, 11);;
+  background-color: rgb(189, 20, 11);
   transform-origin: right top;
   transform: scale(0, 1);
   transition: color 0.1s,transform 0.2s ease-out;
@@ -63,4 +61,107 @@ nav a:hover::before, a:focus::before {
 }
 nav .current {
   color: rgb(189, 20, 11);
+}
+#button {
+  cursor: pointer;
+}
+/*
+#button-signin {
+  padding:8px 25px;
+  border: 1px solid black;
+  border-radius: 40px;
+}
+#button-logout {
+  padding: 0;
+}*/
+#logo{
+  position: absolute;
+  left:40px;
+  top: 0;
+  color:#F24D53;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo img{
+  height: 60px;
+}
+.mobile-nav {
+  display: none;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  right: 22px;
+  top: 15px;
+  width: 30px;
+}
+.bar1, .bar2, .bar3 {
+  width: 32px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #000;
+  margin: 6px 0;
+  transition: 0.6s;
+  position: relative; bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .nav-content li {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  .nav-content {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: 100%;
+    height: 100px;
+  }
+}
+
+
+
+
+
+
+.bg-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  display: none;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+          transition: 3s;
+}
+
+.modal-contents {
+  height: auto;
+  width: 500px;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  border-radius: 4px;
+  transition: 3s;
+}
+
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 60px;
+  color: #333;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  cursor: pointer;
+}
+.close:hover {
+  color: #666;
 }

@@ -7,3 +7,62 @@
     height: 100vh;
     background-position: center;*/
 }
+.calc-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+    margin-top: 70px;
+    height: 100vh;
+    width: 100%;
+    margin: 70px 10%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.calc-container h1 {
+    font-size: 8vh;
+    padding: 25px 0 0 50px;
+    margin: 0;
+}
+.price-form {
+    flex:1;
+}
+#price {
+    flex: 1;
+}
+.price-container {
+    display: flex;
+}
+.price-container div {
+    margin: 10px;
+}
+.center{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+#price {
+    font-size: 9vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type=checkbox], input[type=radio] {
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+  }
+@media only screen and (max-width: 700px) {
+    .calc-container {
+        margin: 65px 0;
+    }
+    .calc-container h1 {
+        padding: 0;
+        margin: 0;
+        font-size: 5vh;
+    }
+}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 body{
     background-color: #fff;
 
@@ -23,14 +24,38 @@ header {
    margin-left: 60px;
 }
 .hero-about {
-    margin: 100px;
+    margin: 10%;
 }
 .hero-about h1 {
     text-align: center;
     font-size: 7vh;
+    font-weight: lighter;
 }
 .hero-about p{
-    font-family: 'Roboto', sans-serif;
-    font-size: 4vh;
+
+    font-size: 3.5vh;
     line-height: 40px;
+}
+.hero-content-btn{
+    background-color:#F24D53;
+    width: 100%;
+    font-size: 3vh;
+    border-radius: 999px;
+    border: none;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 30px;
+}
+footer {
+    background-color: #c0c0c0;
+    padding: 10px;
+    box-shadow: 0 -5px 5px -5px #333;
+}
+footer p{
+    margin: 0;
+}
+@media only screen and (max-width: 700px) {
+    .hero-content h1 {
+        font-size: 5vh;
+  }
 }

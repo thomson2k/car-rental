@@ -1,0 +1,25 @@
+body {
+    margin:0;
+}
+.form {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url('../images/act.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form-hero {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 20%;
+    box-shadow: 0 0px 12px rgba(0,0,0,0.19), 0 5px 10px rgba(0,0,0,0.23);
+}
+input {
+    width: 100%;
+    padding: 5px 15px;
+    margin: 1px 0;
+    box-sizing: border-box;
+}
