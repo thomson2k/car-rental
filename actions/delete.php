@@ -9,12 +9,13 @@ if(!isLoggedIn()){
 <head>
   <meta charset="utf-8">
   <link href="./css/dashboard.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../images/favicon.svg"/>
 </head>
 <body>
 
 <section class="dashboard-actions-container">
 <?php
-require './db.php';
+require '../db.php';
 $id=$_REQUEST['ID_samochodu'];
 $query = "DELETE FROM samochody WHERE ID_samochodu=$id";
 $result = mysqli_query($db,$query) or die ( mysqli_error());

@@ -11,7 +11,7 @@ if(!isLoggedIn()){
     td, th {
       border: 1px solid #dddddd;
       text-align: left;
-      background-color:#fff;
+      background-color:#f5f5f5;
       padding: 8px;
     }
 
@@ -37,11 +37,11 @@ if(!isLoggedIn()){
 <body>
 
 <section class="dashboard-actions-container">
-
+<link rel="stylesheet" href="./css/actions.css">
 <button><a href="./actions/insert.php">Dodaj auto</a></button>
 <p>Wszystkie auta</p>
 <div class="dashboard-table">
-<table   style="border-collapse:collapse;">
+<table  class="table-hero">
 <thead>
   <tr>
     <th><strong>Nr.</strong></th>
@@ -49,9 +49,6 @@ if(!isLoggedIn()){
     <th> <strong>Model</strong></th>
     <th> <strong>Moc</strong></th>
     <th><strong>Kolor</strong></th>
-    <th><strong>Przebieg</strong></th>
-    <th><strong>Pojemność</strong></th>
-    <th><strong>Rok produkcji</strong></th>
     <th><strong>Kaucja</strong></th>
     <th><strong>Edits</strong></th>
   </tr>
@@ -81,15 +78,6 @@ while($row = mysqli_fetch_assoc($result)) { ?>
       </td>
       <td>
         <?php echo $row["Kolor"]; ?>
-      </td>
-      <td>
-        <?php echo $row["Przebieg"]; ?>
-      </td>
-      <td>
-        <?php echo $row["Pojemnosc"]; ?>
-      </td>
-      <td>
-        <?php echo $row["Rok_produkcji"]; ?>
       </td>
       <td>
         <?php echo $row["Kaucja"]; ?>

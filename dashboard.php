@@ -9,6 +9,7 @@ if(!isLoggedIn()){
 <head>
   <meta charset="utf-8">
   <title>Panel zarządzania- Wypożyczalnia aut</title>
+  <link rel="shortcut icon" href="images/favicon.svg"/>
   <link href="./css/inline-list.css" rel="stylesheet">
   <link href="./css/dashboard.css" rel="stylesheet">
 </head>
@@ -51,6 +52,7 @@ require 'navbar.php';
           require './actions/dashactions.php';
           ?>
         </div>
+        <!-- DODAC WYPOZYCZENIA -->
         <div id="create-user-content">
           <h1>Dodaj pracownika</h1>
           <?php
@@ -65,9 +67,6 @@ require 'navbar.php';
           mysqli_query($db,$ins_user) or die(mysqli_error($db));
           }
           ?>
-          <div class="form">
-
-          <div class="form-hero">
           <form name="form" method="post" action="">
             <input type="hidden" name="new" value="1" />
             <p>Nazwa<input type="text" name="nazwa" placeholder="Wprowadz Nazwe" required /></p>
@@ -76,8 +75,6 @@ require 'navbar.php';
             <p><input name="submit" type="submit" value="Submit" /></p>
 
           </form>
-        </div>
-      </div>
     </div>
   </div>
 </section>

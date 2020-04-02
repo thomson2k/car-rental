@@ -11,6 +11,7 @@ if(!isLoggedIn()){
 <head>
   <meta charset="utf-8">
   <link href="./css/dashboard.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../images/favicon.svg"/>
 </head>
 <body>
 
