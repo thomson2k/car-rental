@@ -25,10 +25,10 @@ require 'navbar.php';
 <section class="container">
   <div class="left-half">
     <article>
-      <div id="add"><img src="./images/icons/car-sport-outline.svg"></div>
-      <!--<div id="edit"><img src="./images/icons/create-outline.svg"></div>-->
-      <!--<div id="delete"><img src="./images/icons/trash-outline.svg"></div>-->
+      <div id="add"><img src="./images/icons/car.svg"></div>
+      <div id="edit"><img src="./images/icons/calendar.svg"></div>
       <div id="createuser"><img src="./images/icons/person-add-outline.svg"></div>
+      <!--<div id="delete"><img src="./images/icons/calendar.svg"></div>-->
     </article>
   </div>
   <div class="right-half">
@@ -52,7 +52,11 @@ require 'navbar.php';
           require './actions/dashactions.php';
           ?>
         </div>
-        <!-- DODAC WYPOZYCZENIA -->
+        <div id="edit-content">
+          <?php
+          require './actions/reservations.php';
+          ?>
+        </div>
         <div id="create-user-content">
           <h1>Dodaj pracownika</h1>
           <?php
@@ -60,10 +64,11 @@ require 'navbar.php';
 
           if(isset($_POST['new']) && $_POST['new']==1) {
           $nazwa = $_REQUEST['nazwa'];
-          $haslo = $_REQUEST['haslo'];
+          $password = $_REQUEST['haslo'];
+          $hashed_password = password_hash($password, PASSWORD_DEFAULT);
           $email = $_REQUEST['email'];
           $db = mysqli_connect('localhost','root','','car_rental');
-          $ins_user = "INSERT INTO pracownicy(`ID_pracownika`,`Nazwa`,`Haslo`,`email`) VALUES('','$nazwa','$haslo','$email');";
+          $ins_user = "INSERT INTO pracownicy(`ID_pracownika`,`Nazwa`,`Haslo`,`email`) VALUES('','$nazwa','$hashed_password','$email');";
           mysqli_query($db,$ins_user) or die(mysqli_error($db));
           }
           ?>
@@ -75,7 +80,7 @@ require 'navbar.php';
             <p><input name="submit" type="submit" value="Submit" /></p>
 
           </form>
-    </div>
+          </div>
   </div>
 </section>
 <script src="./js/dashboard.js"></script>

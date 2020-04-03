@@ -60,7 +60,8 @@
             if(!$result) {
                die(mysqli_error($db));
             } else {
-               require './alert.php';
+               ?> <script>alert("Pomyślnie zarezerwowano"); </script>
+               <?php
             }
          }
          }
