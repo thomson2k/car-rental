@@ -48,12 +48,14 @@ if(!$db) {
 } else {
   $sql = "SELECT email, Haslo FROM pracownicy";
   $query = mysqli_query($db, $sql);
-
   while( $row = mysqli_fetch_array($query) ) {
     if (isset($_POST['login']) && isset($_POST['password'])) {
-      if ($_POST['login'] === $row['email'] && $_POST['password'] === $row['Haslo']){
+      $login = mysqli_real_escape_string($db,$_POST['login']);
+      $password = mysqli_real_escape_string($db, $_POST['password']);
+      if ($login === $row['email'] && password_verify($password,$row['Haslo'])){
         $_SESSION['login'] = $_POST['login'];
         header('Location: dashboard.php');
+
       } else {
         echo "<script>alert('Wrong login or password');</script>";
         echo "<noscript>Wrong login or password</noscript>";
