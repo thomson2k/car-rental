@@ -1,22 +1,23 @@
 
- let  first = document.getElementById('quantity');
-let  second = document.getElementById('second');
+let  first = document.getElementById('quantity');
 let  price = document.getElementById('price');
+let  cars = document.getElementById('singleSelectValueDDJS');
 
-
-first.addEventListener("input", sum);
-second.addEventListener("input", sum);
-
-function sum() {
-
- let  one = parseFloat(first.value) || 0;
- let  two = parseFloat(second.value) || 0;
-
-let  add = one+two;
-
-price.innerHTML = add + "zł";
+first.addEventListener("input", singleSelectChangeValue);
+cars.addEventListener("change", singleSelectChangeValue);
+checkbox.addEventListener("change", singleSelectChangeValue);
+function singleSelectChangeValue() {
+	//Getting Value
+	var selObj = document.getElementById("singleSelectValueDDJS");
+	var selValue = selObj.options[selObj.selectedIndex].value;
+	let  one = parseFloat(first.value) || 0;
+	//Setting Value
+	price.innerHTML = selValue + "zł";
+	let add = selValue*one;
+	price.innerHTML = add + "zł";
 
 }
+
 
 /*
 

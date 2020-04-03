@@ -21,56 +21,42 @@ require 'navbar.php';
 <section class="calc-container">
     <h1>Policz koszt wypożyczenia auta</h1>
     <div class="price-container">
-      <form action="" id="cakeform" onsubmit="return false;">
-        <div>
-            <div class="cont_order">
-               <fieldset>
-                <legend></legend>
-                <label ></label>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round6" onclick="calculateTotal()" />Ubezpieczenie</label><br/>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round8" onclick="calculateTotal()" />Mycie</label><br/>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round10" onclick="calculateTotal()" />Polerowanie</label><br/>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round12" onclick="calculateTotal()" />coś</label><br/>
-                <br/>
-                <label >Filling</label>
+              <form action="" method="post" id="calc-form" enctype="text/plain"><div>
+              <label><p><strong>Wybierz auto</strong> (do każdego auta doliczana jest kaucja)
+              <select id="singleSelectValueDDJS" class="form-control"
+                    onchange="singleSelectChangeValue()">
+                    <option selected="true" disabled>Wybierz auto</option>
+                  <?php
+                   $db = mysqli_connect('localhost','root','','car_rental');
+                   $sel_cars = "SELECT Marka, Model,ID_Samochodu,cena FROM samochody ORDER BY ID_samochodu DESC;";
+                   $result = mysqli_query($db,$sel_cars) or die(mysqli_error($db));
+                   while ($row = mysqli_fetch_array($result)){
+                       echo "<option value=".$row['cena'].">".$row['Marka'] ." ".$row['Model'] . "</option>";
+                   }
+                ?>
+              </select>
+            </label>
+            <br><br><br>
+            <label for="quantity">Ilość dni:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="31" value="1">
+            <br><br><br><br>
+            <label><strong>Dodatkowe opcje</strong></p>
+            <div>
+              <label for="scales">Ubezpieczenie</label>
+              <input type="checkbox" id="ubezpieczenie" name="ubezpieczenie"  value="5.99">
+            </div>
+            <div>
+              <label><strong>Dodatki</strong></label>
+              <input type="radio" name="dodatki" value="ub">ubezpieczenie<br>
+              <input type="radio" name="dodatki" value="ub2">cos<br>
+              <input type="radio" name="dodatki" value="ub3">cos<br>
+            </div>
+        </div>
+      </form>
 
-                <select id="filling" name='filling' onchange="calculateTotal()">
-                <option value="None">Select Filling</option>
-                <option value="Lemon">Lemon($5)</option>
-                <option value="Custard">Custard($5)</option>
-                <option value="Fudge">Fudge($7)</option>
-                <option value="Mocha">Mocha($8)</option>
-                <option value="Raspberry">Raspberry($10)</option>
-                <option value="Pineapple">Pineapple($5)</option>
-                <option value="Dobash">Dobash($9)</option>
-                <option value="Mint">Mint($5)</option>
-                <option value="Cherry">Cherry($5)</option>
-                <option value="Apricot">Apricot($8)</option>
-                <option value="Buttercream">Buttercream($7)</option>
-                <option value="Chocolate Mousse">Chocolate Mousse($12)</option>
-               </select>
-                <br/>
-                <p>
-                <label for='includecandles' class="inlinelabel">inc</label>
-               <input type="checkbox" id="includecandles" name='includecandles' onclick="calculateTotal()" />
-               </p>
-
-                <p>
-                <label class="inlinelabel" for='includeinscription'>Include Inscription($20)</label>
-                <input type="checkbox" id="includeinscription" name="includeinscription" onclick="calculateTotal()" />
-                <input type="text"  id="theinscription" name="theinscription" value="Enter Inscription"  />
-                </p>
-
-                </fieldset>
+      <div id="price">0 zł</div>
             </div>
 
-
-       </form>
-	</div>
-        <div class="price-form">
-
-        </div>
-        <div id="price">0 zł</div>
     </div>
 </section>
 </div>
