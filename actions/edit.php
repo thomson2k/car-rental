@@ -5,6 +5,9 @@ if(!isLoggedIn()){
   exit;
 }
 require '../db.php';
+if(!$db) {
+  echo "BŁAD DATABASE";
+ } else {
 $id=$_REQUEST['ID_samochodu'];
 if(isset($_POST['new']) && $_POST['new']==1) {
 $marka = $_REQUEST['marka'];
@@ -15,8 +18,16 @@ $cena = $_REQUEST['cena'];
 $kaucja = $_REQUEST['kaucja'];
 
 $update = "UPDATE samochody SET `ID_samochodu`='$id',`Marka`='$marka',`Moc`='$moc',`Kolor`='$kolor',`cena`='$cena',`Model`='$model',`Kaucja`='$kaucja' WHERE ID_samochodu=$id";
-mysqli_query($db,$update) or die(mysqli_error($db));
+$result = mysqli_query($db,$update);
+if(!$result) {
+  die(mysqli_error($db));
+} else {
+  ?> <script>alert("Pomyślnie zarezerwowano"); </script>
+  <?php
+}
 header("Location: ../dashboard.php");
+
+}
 }
 ?>
 <!DOCTYPE html>

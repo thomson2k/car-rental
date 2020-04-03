@@ -16,10 +16,14 @@ if(!isLoggedIn()){
 <section class="dashboard-actions-container">
 <?php
 require '../db.php';
+if(!$db) {
+ echo "BŁAD DATABASE";
+} else {
 $id=$_REQUEST['ID_samochodu'];
 $query = "DELETE FROM samochody WHERE ID_samochodu=$id";
 $result = mysqli_query($db,$query) or die ( mysqli_error());
 header("Location: ../dashboard.php");
+}
 ?>
 </section>
 </body>
