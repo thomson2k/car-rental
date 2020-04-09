@@ -38,8 +38,8 @@ if(!isLoggedIn()){
 
 <section class="dashboard-actions-container">
 <link rel="stylesheet" href="./css/actions.css">
-<button><a href="./actions/insert.php">Dodaj auto</a></button>
-<p>Wszystkie auta</p>
+<a id="btn-add" href="./actions/insert.php">Dodaj auto</a>
+<p><strong>Wszystkie auta</strong></p>
 <div class="dashboard-table">
 <table  class="table-hero">
 <thead>

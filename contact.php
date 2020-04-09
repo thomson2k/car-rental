@@ -117,15 +117,14 @@
                         <option>Poznań</option>
                      </select>
                   </div>
-                  <div>
-                     <p>Dodatki</p>
+                  <div id="ct-ub">
+                     <p><strong>Dodatki</strong></p>
+                     <p> ubezpieczenie<input type="checkbox" name="ubezpieczenie" value="1"></p>
                      <input type="hidden" name="ubezpieczenie" value="0">
-                     <input type="checkbox" name="ubezpieczenie" value="1">ubezpieczenie<br>
+                    <br>
                   </div>
-                  <!-- Przycisk WYŚLIJ -->
-                  <input type="submit" value="Wyślij formularz">
-                  <!-- Przycisk WYCZYŚĆ DANE -->
-                  <input type="reset" value="Wyczyść dane">
+                  <div><input type="submit" value="Wyślij formularz"></div>
+
             </form>
          </div>
       </div>

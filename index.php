@@ -20,7 +20,7 @@ require 'navbar.php';
   </section>
 </header>
 <div class="hero-about">
-  <h1>O firme</h1>
+  <h1>O firmie</h1>
   <p>Salon samochodów luksusowych</h1>
   <p>Wieloletnie doświadczenie w motoryzacji pozwoliło nam stworzyć firmę, której brakowało na Polskim rynku.</p>
   <p>Wynajem aut luksusowych, sportowych oraz użytkowych, w cenach przystępnych dla każdego.
@@ -35,13 +35,12 @@ require 'navbar.php';
   <div class="coursel-container">
     <div class="coursel-slide">
       <img src="./images/6.webp" id="lastClone" alt="auto">
-      <img src="./images/1.webp" alt="auto">
       <img src="./images/2.webp" alt="auto">
-      <img src="./images/3.webp" alt="auto">
-      <img src="./images/4.webp" alt="auto">
-      <img src="./images/5.webp" alt="auto">
-      <img src="./images/6.webp" alt="auto">
-      <img src="./images/1.webp"  id="firstClone" alt="auto">
+      <img src="./images/2.jpg" alt="auto">
+      <img src="./images/3.jpg" alt="auto">
+      <img src="./images/4.jpg" alt="auto">
+      <img src="./images/1.jpg" alt="auto">
+      <img src="./images/2.webp"  id="firstClone" alt="auto">
     </div>
     <div id="prevBtn"><img src="images/left.svg">  </div>
     <div id="nextBtn"><img src="images/right.svg"></div>

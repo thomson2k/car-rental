@@ -1,21 +1,27 @@
 
 let  first = document.getElementById('quantity');
 let  price = document.getElementById('price');
-let  cars = document.getElementById('singleSelectValueDDJS');
+let  cars = document.getElementById('selectcar');
+let  insurance = document.getElementById('ubezpieczenie');
 
 first.addEventListener("input", singleSelectChangeValue);
 cars.addEventListener("change", singleSelectChangeValue);
-checkbox.addEventListener("change", singleSelectChangeValue);
-function singleSelectChangeValue() {
-	//Getting Value
-	var selObj = document.getElementById("singleSelectValueDDJS");
-	var selValue = selObj.options[selObj.selectedIndex].value;
-	let  one = parseFloat(first.value) || 0;
-	//Setting Value
-	price.innerHTML = selValue + "zł";
-	let add = selValue*one;
-	price.innerHTML = add + "zł";
+insurance.addEventListener("change", singleSelectChangeValue);
 
+
+function singleSelectChangeValue() {
+	let el, i = 0;
+	let total = 0;
+
+	let selValue = cars.options[cars.selectedIndex].value;
+	let  one = parseFloat(first.value) || 0;
+
+	price.innerHTML = selValue + "zł";
+	while(el = document.getElementsByName("ubezpieczenie")[i++]) {
+		if(el.checked) { total= total + Number(el.value);}
+	}
+	let add = (selValue*one)+total;
+	price.innerHTML = add + "zł";
 }
 
 

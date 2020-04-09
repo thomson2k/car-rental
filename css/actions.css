@@ -44,4 +44,20 @@ table {
 table, td, th {
 
     border-right: none;
-  }
+}
+#btn-add{
+  background-color: #f24d53;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+@media only screen and (max-width: 700px) {
+    .dashboard-actions-container {
+        width: 270px;
+    }
+}

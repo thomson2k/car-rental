@@ -38,9 +38,10 @@ if(!isLoggedIn()){
 
 <section class="dashboard-actions-container">
 <link rel="stylesheet" href="./css/actions.css">
-<p>Wypożyczenia</p>
+<link rel="stylesheet" href="./css/contact.css">
+<p><strong>Wypożyczenia</strong></p>
 <div class="dashboard-table">
-<table  class="table-hero">
+<table class="table-hero">
 <thead>
   <tr>
     <th><strong>Nr.</strong></th>

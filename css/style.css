@@ -42,11 +42,10 @@ header {
     padding: 10px 30px;
 }
 footer h1{
-    padding: 10px;
     font-weight: lighter;
     text-align: center;
+    padding: 30px 0;
 }
-
 @media only screen and (max-width: 700px) {
     .hero-content h1 {
         font-size: 5vh;
@@ -64,7 +63,6 @@ footer h1{
 }
 .coursel-container{
     overflow: hidden;
-
     margin: auto;
      margin-top: 5rem;
     overflow-x: hidden;

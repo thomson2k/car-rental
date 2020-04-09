@@ -6,7 +6,6 @@ require_once('./init.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/inline-list.css" rel="stylesheet">
   </head>
-
 <body>
   <nav id="navbar">
     <div id="logo">RENT a<img src="./images/logo.png"></div>
@@ -24,49 +23,48 @@ require_once('./init.php');
       <?php
       if(!isLoggedIn()){
       ?>
-      <a id="button">Zaloguj się</a>
+      <a id="button" class="button-login">Zaloguj się</a>
+      <script>
+        let button = document.querySelector('.button-login');
+        button.addEventListener("click", function() {
+        	document.querySelector('.bg-modal').style.display = "flex";
+        });
+      </script>
       <?php } else { ?>
-        <a href="./logout.php" id="button">Wyloguj się</a>
+        <a href="./logout.php" >Wyloguj się</a>
       <?php }?>
       </li>
+    </ul>
 
-      <div class="mobile-nav" value="Reset form">
+    <div class="mobile-nav" value="Reset form">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
 
-
-    </ul>
   </nav>
-
   <?php
-require './db.php';
+  if(isset($_POST['logIn'])) {
+    require './db.php';
+    $sql = "SELECT email, Haslo FROM pracownicy";
+    $query = mysqli_query($db, $sql);
+    while( $row = mysqli_fetch_array($query) ) {
+      if (isset($_POST['login']) && isset($_POST['password'])) {
+        $login = mysqli_real_escape_string($db,$_POST['login']);
+        $password = mysqli_real_escape_string($db, $_POST['password']);
 
-if(!$db) {
-  echo "err";
-} else {
-  $sql = "SELECT email, Haslo FROM pracownicy";
-  $query = mysqli_query($db, $sql);
-  while( $row = mysqli_fetch_array($query) ) {
-    if (isset($_POST['login']) && isset($_POST['password'])) {
-      $login = mysqli_real_escape_string($db,$_POST['login']);
-      $password = mysqli_real_escape_string($db, $_POST['password']);
-      if ($login === $row['email'] && password_verify($password,$row['Haslo'])){
-        $_SESSION['login'] = $_POST['login'];
-        header('Location: dashboard.php');
-
-      } else {
-        echo "<script>alert('Wrong login or password');</script>";
-        echo "<noscript>Wrong login or password</noscript>";
+        if ($login === $row['email'] && password_verify($password,$row['Haslo'])){
+          $_SESSION['login'] = $_POST['login'];
+          header('Location: dashboard.php');
+        } else {
+          $_SESSION['wrongPass'] = true;
+        }
       }
     }
+    mysqli_close($db);
   }
-
-  mysqli_close($db);
-}
 ?>
- <div class="bg-modal">
+<div class="bg-modal">
     <div class="modal-contents">
         <div class="close">+</div>
         <form class="form-container" method="POST">
@@ -81,11 +79,12 @@ if(!$db) {
             </label>
             <input type="password" name="password" required>
             <br>
-            <button type="submit" class="btn">Zaloguj się</button>
+            <button type="submit" class="btn" name="logIn">Zaloguj się</button>
         </form>
-
     </div>
 </div>
+
 <script src="./js/mobilenav.js"></script>
+
 </body>
 </html>
